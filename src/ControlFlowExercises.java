@@ -1,3 +1,5 @@
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.Scanner;
 
 public class ControlFlowExercises {
@@ -58,35 +60,81 @@ public class ControlFlowExercises {
 //            } else System.out.println(i);
 //        }
 
-//      3. Display a table of powers.
+////      3. Display a table of powers.
         Scanner scn = new Scanner(System.in);
 
-        System.out.println("What number would you like to go up to?");
-        int userInput = scn.nextInt();
-        System.out.println("Here's your table:");
-        System.out.println("Number  |  Squared  |  Cubed");
+//        boolean keepGoing = true;
 
-        for(int i = 1; i <= userInput; i++) {
-            int squared = i*i;
-            int cubed = i*i*i;
+//        System.out.println("would you like to continue? Enter Y or N");
+//        String userAnswer = scn.nextLine();
+//        if (userAnswer.equalsIgnoreCase("n")) {
+//            System.out.println("OK, bye");
+//        } else {
+//
+//                System.out.println("What number would you like to go up to?");
+//                int userInput = scn.nextInt();
+//                System.out.println("Here's your table:");
+//                System.out.println("|  Number  |  Squared  |  Cubed  |");
+//
+//                String leftAlignFormat = "| %-8s |     %-4d  |    %-4d |%n";
+//                for (int i = 1; i <= userInput; i++) {
+//                    int squared = i * i;
+//                    int cubed = i * i * i;
+//
+//                    System.out.format(leftAlignFormat, i, squared, cubed);
+//                }
+//        }
 
-            System.out.format(i, squared, cubed);
+        boolean keepGoing = true;
+        do {
+            System.out.println("What number would you like to go up to?");
+            int userInput = scn.nextInt();
+            System.out.println("Here's your table:");
+            System.out.println("|  Number  |  Squared  |  Cubed  |");
+
+            String leftAlignFormat = "| %-8s |     %-4d  |    %-4d |%n";
+            for (int i = 1; i <= userInput; i++) {
+                int squared = i * i;
+                int cubed = i * i * i;
+
+                System.out.format(leftAlignFormat, i, squared, cubed);
+            }
+            System.out.println("Would you like to keep going? [ Y or N ]");
+            String userAnswer = scn.next();
+            if (userAnswer.equalsIgnoreCase("n")){
+                keepGoing = false;
+                System.out.println("OK, bye");
+            }
         }
+        while (keepGoing);
 
+////        4. Convert given number grades into letter grades.
+//
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+//        boolean anotherGrade = true;
+//        do {
+//            System.out.println("Enter a number grade ranging from 0-100.");
+//            int gradeInput = scn.nextInt();
+//
+//            if (gradeInput >= 88) {
+//                System.out.println("A");
+//            } else if (gradeInput >= 80) {
+//                System.out.println("B");
+//            } else if (gradeInput >= 67) {
+//                System.out.println("C");
+//            } else if (gradeInput >= 60) {
+//                System.out.println("D");
+//            } else {
+//                System.out.println("you failed");
+//            }
+//
+//            System.out.println("would you like to continue (y/n)?");
+//            String userResponse = scn.next();
+//            if (userResponse.equalsIgnoreCase("n")) {
+//                anotherGrade = false;
+//            }
+//        }while (anotherGrade);
+//
     }
 
 }
