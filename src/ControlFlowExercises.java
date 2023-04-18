@@ -85,14 +85,16 @@ public class ControlFlowExercises {
 //                }
 //        }
 
+//        **** INITIATING keepGoing TO TRUE ()******
         boolean keepGoing = true;
+
         do {
             System.out.println("What number would you like to go up to?");
             int userInput = scn.nextInt();
             System.out.println("Here's your table:");
             System.out.println("|  Number  |  Squared  |  Cubed  |");
 
-            String leftAlignFormat = "| %-8s |     %-4d  |    %-4d |%n";
+            String leftAlignFormat = "| %-8d |     %-4d  |    %-4d |%n";
             for (int i = 1; i <= userInput; i++) {
                 int squared = i * i;
                 int cubed = i * i * i;
@@ -104,6 +106,8 @@ public class ControlFlowExercises {
             if (userAnswer.equalsIgnoreCase("n")){
                 keepGoing = false;
                 System.out.println("OK, bye");
+            } else if (!userAnswer.equalsIgnoreCase("y")){
+                System.out.println("Invalid Input!");
             }
         }
         while (keepGoing);
