@@ -101,14 +101,22 @@ public class ControlFlowExercises {
 
                 System.out.format(leftAlignFormat, i, squared, cubed);
             }
-            System.out.println("Would you like to keep going? [ Y or N ]");
-            String userAnswer = scn.next();
-            if (userAnswer.equalsIgnoreCase("n")){
-                keepGoing = false;
-                System.out.println("OK, bye");
-            } else if (!userAnswer.equalsIgnoreCase("y")){
-                System.out.println("Invalid Input!");
-            }
+
+                boolean userKeepGoingPrompt = true;
+                do {
+                    System.out.println("Would you like to keep going? [ Y or N ]");
+                    String userAnswer = scn.next();
+                    if (userAnswer.equalsIgnoreCase("n")) {
+                        keepGoing = false;
+                        userKeepGoingPrompt = false;
+                        System.out.println("OK, bye");
+                    } else if (userAnswer.equalsIgnoreCase("y")){
+                        userKeepGoingPrompt = false;
+                    } else {
+                        System.out.println("Invalid Input!");
+                    }
+                }
+                while (userKeepGoingPrompt);
         }
         while (keepGoing);
 
