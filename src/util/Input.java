@@ -17,7 +17,7 @@ public class Input {
     }
 
 //    PROPERTIES
-    private final Scanner scanner;
+    public static Scanner scanner;
 
 
     public Input (Scanner scanner){
