@@ -59,25 +59,36 @@ public class GradesApplication {
                 System.out.println("Student Name: " + students.get(userInput).getName());
                 double gradeAve = students.get(userInput).getGradeAverage();
                 System.out.printf("Grade Average is: %.2f \n", gradeAve);
+                System.out.println("This student's grades are: " + students.get(userInput).getGrades());
             } else {
                 System.out.println("The username you entered does not exists");
             }
 
-            boolean userMoreQuestionsPrompt = true;
-
-            do {
-                System.out.println("Would you like to search for another student? [ Y or N ]");
-                String userContinue = scn.nextLine();
-                if (userContinue.equalsIgnoreCase("n")) {
-                    moreQuestions = false;
-                    userMoreQuestionsPrompt = false;
-                    System.out.println("OK, bye");
-                } else if (userContinue.equalsIgnoreCase("y")){
-                    userMoreQuestionsPrompt = false;
-                } else {
-                    System.out.println("Invalid Input!");
+            System.out.println("Would you like to see all student grades?");
+            String seeAllGrades = scn.nextLine();
+            if (seeAllGrades.equalsIgnoreCase("y")){
+                System.out.println("Below are all student grades:");
+                for (Student studentGrades : students.values()){
+                    System.out.println("Name: " + studentGrades.getName() + ", Grades: " + studentGrades.getGrades());
                 }
-            } while (userMoreQuestionsPrompt);
+            }
+
+                boolean userMoreQuestionsPrompt = true;
+
+                do {
+                    System.out.println("Would you like to search for another student? [ Y or N ]");
+                    String userContinue = scn.nextLine();
+                    if (userContinue.equalsIgnoreCase("n")) {
+                        moreQuestions = false;
+                        userMoreQuestionsPrompt = false;
+                        System.out.println("OK, bye");
+                    } else if (userContinue.equalsIgnoreCase("y")) {
+                        userMoreQuestionsPrompt = false;
+                    } else {
+                        System.out.println("Invalid Input!");
+                    }
+                } while (userMoreQuestionsPrompt);
+
         } while (moreQuestions);
 
 
